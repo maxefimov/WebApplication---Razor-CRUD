@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <table class="table">
+        <thead>
+            <tr><th>Имя</th><th>Возраст</th><th></th></tr>
+        </thead>
+        <tbody>
+            @foreach(var user in Model.Users)
+            {
+            <tr>
+                <td>@user.Name</td>
+                <td>@user.Age</td>
+                <td>
+                    <form method="POST">
+                        <a asp-page="Edit" asp-route-id="@user.Id">Изменить</a>
+                        <button type="submit" asp-page-handler="Delete" asp-route-id="@user.Id">
+                            Удалить
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    <p><a asp-page="Create">Добавить юзера</a></p>
+</div>

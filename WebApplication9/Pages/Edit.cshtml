@@ -1,0 +1,29 @@
+﻿@page "{id:int}"
+@model WebApplication9.Pages.EditModel
+@{
+    ViewData["Title"] = "Редактирование юзера";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="POST">
+    <div asp-validation-summary="All"></div>
+    <input asp-for="User.Id" type="hidden" />
+    <div>
+        <label>Имя</label><br />
+        <div>
+            <input asp-for="User.Name" />
+            <span asp-validation-for="User.Name"></span>
+        </div>
+    </div>
+    <div>
+        <label>Возраст</label><br />
+        <div>
+            <input asp-for="User.Age" />
+            <span asp-validation-for="User.Age"></span>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Изменить"/>
+    </div>
+</form>

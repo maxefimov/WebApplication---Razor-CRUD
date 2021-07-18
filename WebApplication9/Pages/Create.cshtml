@@ -1,0 +1,19 @@
+﻿@page
+@model WebApplication9.Pages.CreateModel
+@{
+    ViewData["Title"] = "Добавить поьзователя";
+}
+
+<h2>@ViewData["Title"]</h2>
+<div asp-validation-summary="All"></div>
+<form method="POST">
+    <div>
+        <label>Имя</label><br />
+        <input asp-for="User.Name" />
+    </div>
+    <div>
+        <label>Возраст</label><br />
+        <input asp-for="User.Age" />
+    </div>
+    <input type="submit" value="Сохранить" />
+</form>
